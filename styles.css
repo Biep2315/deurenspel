@@ -1,0 +1,157 @@
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --accent: #2b9af3;
+  --accent-2: #1e6fb8;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #e9f0ff 0%, var(--bg) 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+
+.container{
+  max-width:980px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+header{
+  text-align:center;
+}
+h1{margin:0;font-size:2rem}
+.subtitle{margin:6px 0 0;color:var(--muted)}
+
+.game{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:18px;
+  align-items:start;
+}
+
+/* Doors area */
+.doors{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:flex-end;
+  padding:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(13,38,76,0.08);
+  min-height:320px;
+}
+
+/* A single door */
+.door{
+  width:160px;
+  height:260px;
+  background: linear-gradient(180deg,#8b5cf6,#7c3aed);
+  border-radius:10px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 8px 20px rgba(12, 18, 40, 0.08);
+  transform-origin:bottom center;
+  color:white;
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:1.1rem;
+}
+
+/* closed vs opened styles */
+.door.closed{ background: linear-gradient(180deg,#5b61ff,#3b3ff2); }
+.door.opened{
+  transform: translateY(-8px) rotateX(10deg);
+  background: linear-gradient(180deg,#f8fafc,#ffffff);
+  color:#111827;
+  border: 2px solid rgba(0,0,0,0.06);
+}
+
+/* small peephole / handle */
+.door::before{
+  content:'';
+  position:absolute;
+  width:18px;height:18px;
+  border-radius:50%;
+  right:18px;
+  top:22px;
+  background:rgba(0,0,0,0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+/* prize and goat appearance */
+.reveal{
+  font-size:3rem;
+  pointer-events:none;
+}
+
+/* disabled door */
+.door.disabled{ opacity:0.5; cursor:not-allowed; transform:none; }
+
+/* Panel */
+.panel{
+  background:var(--card);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(13,38,76,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.info p{margin:6px 0;color:var(--muted)}
+.controls{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  border:0;
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  background:var(--accent);
+  color:white;
+  font-weight:600;
+  box-shadow: 0 6px 12px rgba(43,154,243,0.14);
+}
+.btn.alt{ background:var(--accent-2) }
+.btn.ghost{
+  background:transparent;color:var(--muted);
+  border:1px solid rgba(16,24,40,0.06);
+  box-shadow:none;
+}
+
+/* message */
+.message{
+  margin-top:6px;
+  padding:10px;
+  border-radius:8px;
+  background:var(--glass);
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* footer */
+footer{ text-align:center;color:var(--muted); font-size:0.85rem; margin-top:6px;}
+
+/* responsive */
+@media (max-width:880px){
+  .game{ grid-template-columns:1fr; }
+  .doors{ min-height:260px; padding:14px }
+  .door{ width:120px;height:210px;font-size:1rem }
+}
