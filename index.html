@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deurenspel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Deurenspel</h1>
+      <p class="subtitle">Kies een deur. Achter één deur zit de prijs!</p>
+    </header>
+
+    <section class="game">
+      <div id="doors" class="doors">
+        <!-- De deuren worden met JS aangemaakt voor flexibiliteit -->
+      </div>
+
+      <aside class="panel">
+        <div class="info">
+          <p>Ronde: <span id="round">0</span></p>
+          <p>Winst: <span id="wins">0</span></p>
+          <p>Verloren: <span id="losses">0</span></p>
+        </div>
+
+        <div class="controls">
+          <button id="nextRound" class="btn">Nieuwe ronde</button>
+          <button id="revealAll" class="btn alt">Toon alle</button>
+          <button id="reset" class="btn ghost">Reset score</button>
+        </div>
+
+        <div class="message" id="message">Klik op een deur om te kiezen.</div>
+      </aside>
+    </section>
+
+    <footer>
+      <small>Webversie van het Deurenspel — gemaakt als vervanging van de .exe</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
